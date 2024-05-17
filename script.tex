@@ -1,0 +1,427 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={IXIS Technical Exercise},
+  pdfauthor={Will Smialek},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{IXIS Technical Exercise}
+\author{Will Smialek}
+\date{2024-05-16}
+
+\begin{document}
+\maketitle
+
+\hypertarget{setup}{%
+\subsection{Setup}\label{setup}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\NormalTok{opts\_chunk}\SpecialCharTok{$}\FunctionTok{set}\NormalTok{(}\AttributeTok{echo =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{fig.align =} \StringTok{\textquotesingle{}center\textquotesingle{}}\NormalTok{)}
+
+\CommentTok{\# Load libraries}
+\NormalTok{pacman}\SpecialCharTok{::}\FunctionTok{p\_load}\NormalTok{(tidyverse, openxlsx, lubridate)}
+
+\CommentTok{\# Read Google Analytics datasets}
+\NormalTok{adds\_to\_cart }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{\textquotesingle{}DataAnalyst\_Ecom\_data\_addsToCart.csv\textquotesingle{}}\NormalTok{)}
+\NormalTok{session\_counts }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{\textquotesingle{}DataAnalyst\_Ecom\_data\_sessionCounts.csv\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{preprocessing}{%
+\subsection{Preprocessing}\label{preprocessing}}
+
+In order to create a data frame with month * device aggregation, the
+first step is to break the \texttt{dim\_date} column into two parts
+(year and month).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{session\_counts }\OtherTok{\textless{}{-}}\NormalTok{ session\_counts }\SpecialCharTok{|\textgreater{}}
+  
+  \CommentTok{\# Change dim\_date type from character to Date}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{dim\_date =} \FunctionTok{as.Date}\NormalTok{(dim\_date, }\AttributeTok{format =} \StringTok{\textquotesingle{}\%m/\%d/\%y\textquotesingle{}}\NormalTok{)) }\SpecialCharTok{|\textgreater{}}
+  
+  \CommentTok{\# Create columns for month and year}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{dim\_year =} \FunctionTok{year}\NormalTok{(dim\_date),}
+         \AttributeTok{dim\_month =} \FunctionTok{month}\NormalTok{(dim\_date))}
+
+\CommentTok{\# Display preprocessed data}
+\FunctionTok{tibble}\NormalTok{(session\_counts)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 7,734 x 8
+##    dim_browser       dim_deviceCategory dim_date   sessions transactions   QTY
+##    <chr>             <chr>              <date>        <int>        <int> <int>
+##  1 Safari            tablet             2012-07-01     2928          127   221
+##  2 Internet Explorer desktop            2012-07-01     1106           28     0
+##  3 Chrome            tablet             2012-07-01      474            3    13
+##  4 Amazon Silk       tablet             2012-07-01      235            4     5
+##  5 Internet Explorer mobile             2012-07-01      178            6    11
+##  6 Internet Explorer tablet             2012-07-01      120            7     0
+##  7 Android Browser   mobile             2012-07-01       10            0     0
+##  8 error             desktop            2012-07-01        9            0     0
+##  9 Edge              mobile             2012-07-01        5            0     0
+## 10 Opera             mobile             2012-07-01        4            0     0
+## # i 7,724 more rows
+## # i 2 more variables: dim_year <dbl>, dim_month <dbl>
+\end{verbatim}
+
+\hypertarget{aggregation}{%
+\subsection{Aggregation}\label{aggregation}}
+
+Now that \texttt{session\_counts} has a year and month column, we can do
+month * device aggregation. First, let's explore the data a bit more.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{table}\NormalTok{(session\_counts}\SpecialCharTok{$}\NormalTok{dim\_deviceCategory)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## desktop  mobile  tablet 
+##    2672    3013    2049
+\end{verbatim}
+
+This shows us that there are three categories of devices in our data
+frame. This means each month should have at most three device categories
+for each month. Now that we know what to expect, let's aggregate the
+data accordingly.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Suppress friendly warning that appears when using \textasciigrave{}summarise\textasciigrave{} with more than one grouping}
+\FunctionTok{options}\NormalTok{(}\AttributeTok{dplyr.summarise.inform =} \ConstantTok{FALSE}\NormalTok{)}
+
+\NormalTok{month\_device\_aggregated\_data }\OtherTok{\textless{}{-}}\NormalTok{ session\_counts }\SpecialCharTok{|\textgreater{}}
+  
+  \CommentTok{\# Group by year, month, and device category}
+  \FunctionTok{group\_by}\NormalTok{(dim\_year, dim\_month, dim\_deviceCategory) }\SpecialCharTok{|\textgreater{}}
+  
+  \CommentTok{\# For each group take sum of sessions, transactions, and QTY}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{sessions =} \FunctionTok{sum}\NormalTok{(sessions),}
+            \AttributeTok{transactions =} \FunctionTok{sum}\NormalTok{(transactions),}
+            \AttributeTok{QTY =} \FunctionTok{sum}\NormalTok{(QTY)) }\SpecialCharTok{|\textgreater{}}
+  
+  \CommentTok{\# Calculate ECR for each group}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{ECR =}\NormalTok{ transactions }\SpecialCharTok{/}\NormalTok{ sessions)}
+
+\CommentTok{\# Display aggregated data}
+\FunctionTok{tibble}\NormalTok{(month\_device\_aggregated\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 36 x 7
+##    dim_year dim_month dim_deviceCategory sessions transactions   QTY     ECR
+##       <dbl>     <dbl> <chr>                 <int>        <int> <int>   <dbl>
+##  1     2012         7 desktop              335429        10701 18547 0.0319 
+##  2     2012         7 mobile               274443         2576  4557 0.00939
+##  3     2012         7 tablet               158717         4884  8700 0.0308 
+##  4     2012         8 desktop              392079        12912 23316 0.0329 
+##  5     2012         8 mobile               275556         3165  5572 0.0115 
+##  6     2012         8 tablet               154858         3202  5760 0.0207 
+##  7     2012         9 desktop              272771         8898 16507 0.0326 
+##  8     2012         9 mobile               220689         2381  4050 0.0108 
+##  9     2012         9 tablet               169193         4379  7869 0.0259 
+## 10     2012        10 desktop              302682         9373 17675 0.0310 
+## # i 26 more rows
+\end{verbatim}
+
+Here we have 36 rows which contains the month * device aggregated data.
+
+\hypertarget{month-over-month-comparison}{%
+\subsection{Month Over Month
+Comparison}\label{month-over-month-comparison}}
+
+In order to compare the most recent two months, we must first determine
+which rows in the \texttt{session\_counts} are the two most recent.
+Visually, it looks as if \texttt{session\_counts} has been given to us
+sorted by date, ascending. However, we should write code that does not
+assume that the data has already been sorted.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{groups}\NormalTok{(month\_device\_aggregated\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [[1]]
+## dim_year
+## 
+## [[2]]
+## dim_month
+\end{verbatim}
+
+This shows us that \texttt{month\_device\_aggregated\_data} currently
+has two groups, \texttt{dim\_year} and \texttt{dim\_month}. These are
+the exact groups we would like in order to summarize data by month. We
+will be able to include the \texttt{addsToCart} column from the second
+csv file as soon as we aggregate by month.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{recent\_two\_months }\OtherTok{\textless{}{-}}\NormalTok{ month\_device\_aggregated\_data }\SpecialCharTok{|\textgreater{}}
+  
+  \CommentTok{\# Sum relevant data by month}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{sessions =} \FunctionTok{sum}\NormalTok{(sessions),}
+            \AttributeTok{transactions=} \FunctionTok{sum}\NormalTok{(transactions),}
+            \AttributeTok{QTY =} \FunctionTok{sum}\NormalTok{(QTY)) }\SpecialCharTok{|\textgreater{}}
+  
+  \CommentTok{\# Calculate ECR for each month}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{ECR =}\NormalTok{ transactions }\SpecialCharTok{/}\NormalTok{ sessions) }\SpecialCharTok{|\textgreater{}}
+  
+  \CommentTok{\# Perform a left join to include \textasciigrave{}addsToCart\textasciigrave{}}
+  \FunctionTok{left\_join}\NormalTok{(adds\_to\_cart, }\AttributeTok{by =} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}dim\_year\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}dim\_month\textquotesingle{}}\NormalTok{)) }\SpecialCharTok{|\textgreater{}}
+  
+  \CommentTok{\# Sort rows to have most recent months at the top}
+  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(dim\_year), }\FunctionTok{desc}\NormalTok{(dim\_month)) }\SpecialCharTok{|\textgreater{}}
+  
+  \CommentTok{\# After \textasciigrave{}summarise\textasciigrave{}, there is one grouping left}
+  \CommentTok{\# This grouping must be removed in order to slice properly}
+  \FunctionTok{ungroup}\NormalTok{() }\SpecialCharTok{|\textgreater{}}
+  
+  \CommentTok{\# Slice the top two rows}
+  \FunctionTok{slice}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{2}\NormalTok{)}
+
+\CommentTok{\# Display current data}
+\FunctionTok{tibble}\NormalTok{(recent\_two\_months)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 2 x 7
+##   dim_year dim_month sessions transactions   QTY    ECR addsToCart
+##      <dbl>     <dbl>    <int>        <int> <int>  <dbl>      <int>
+## 1     2013         6  1388834        34538 61891 0.0249     107970
+## 2     2013         5  1164639        28389 51629 0.0244     136720
+\end{verbatim}
+
+This shows we've successfully grabbed the most recent two months. Before
+we calculate direct comparisons between these two months, let's reorder
+them chronologically.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{recent\_two\_months }\OtherTok{\textless{}{-}}\NormalTok{ recent\_two\_months }\SpecialCharTok{|\textgreater{}}
+  
+  \CommentTok{\# Rearrange rows to be chronological}
+  \FunctionTok{arrange}\NormalTok{(dim\_year, dim\_month) }\SpecialCharTok{|\textgreater{}}
+
+  \CommentTok{\# Create description column. This column will simply have which month it is}
+  \CommentTok{\# for our current two rows, but it will describe future rows differently}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{description =} \FunctionTok{paste}\NormalTok{(dim\_month, dim\_year, }\AttributeTok{sep =} \StringTok{\textquotesingle{}/\textquotesingle{}}\NormalTok{)) }\SpecialCharTok{|\textgreater{}}
+
+  \CommentTok{\# Reorder columns so that the description is first and}
+  \CommentTok{\# remove now{-}redundant date columns}
+  \FunctionTok{select}\NormalTok{(description, }\FunctionTok{everything}\NormalTok{(), }\SpecialCharTok{{-}}\NormalTok{dim\_year, }\SpecialCharTok{{-}}\NormalTok{dim\_month)}
+
+\CommentTok{\# Display current data}
+\FunctionTok{tibble}\NormalTok{(recent\_two\_months)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 2 x 6
+##   description sessions transactions   QTY    ECR addsToCart
+##   <chr>          <int>        <int> <int>  <dbl>      <int>
+## 1 5/2013       1164639        28389 51629 0.0244     136720
+## 2 6/2013       1388834        34538 61891 0.0249     107970
+\end{verbatim}
+
+We've combined the month and year columns for these two rows to serve as
+their description. Now we will be able to create new rows which describe
+diferent comparisons - absolute difference and relative difference.
+Absolute difference between \(a\) and \(b\) is written \(|a - b|\).
+Relative difference between \(a\) and \(b\) is calculated as
+\(\frac{b-a}{b}\).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Create absolute difference row}
+\NormalTok{absolute\_difference }\OtherTok{\textless{}{-}}\NormalTok{ recent\_two\_months }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{description =} \StringTok{\textquotesingle{}absolute difference\textquotesingle{}}\NormalTok{,}
+    
+    \CommentTok{\# Calculate absolute difference for each numeric column}
+    \FunctionTok{across}\NormalTok{(}\FunctionTok{where}\NormalTok{(is.numeric), }\SpecialCharTok{\textasciitilde{}} \FunctionTok{abs}\NormalTok{(.[}\DecValTok{1}\NormalTok{] }\SpecialCharTok{{-}}\NormalTok{ .[}\DecValTok{2}\NormalTok{]))}
+\NormalTok{  )}
+
+\CommentTok{\# Create relative difference row}
+\NormalTok{relative\_difference }\OtherTok{\textless{}{-}}\NormalTok{ recent\_two\_months }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{description =} \StringTok{\textquotesingle{}relative difference\textquotesingle{}}\NormalTok{,}
+    
+    \CommentTok{\# Calculate relative difference for each numeric column}
+    \FunctionTok{across}\NormalTok{(}\FunctionTok{where}\NormalTok{(is.numeric), }\SpecialCharTok{\textasciitilde{}}\NormalTok{ (.[}\DecValTok{2}\NormalTok{] }\SpecialCharTok{{-}}\NormalTok{ .[}\DecValTok{1}\NormalTok{]) }\SpecialCharTok{/}\NormalTok{ .[}\DecValTok{1}\NormalTok{])}
+\NormalTok{  )}
+
+\CommentTok{\# Bind new rows to bottom of \textasciigrave{}recent\_two\_months\textasciigrave{}}
+\NormalTok{month\_over\_month\_comp }\OtherTok{\textless{}{-}} \FunctionTok{rbind}\NormalTok{(recent\_two\_months, absolute\_difference, relative\_difference)}
+
+\CommentTok{\# Display month over month comparison}
+\FunctionTok{tibble}\NormalTok{(month\_over\_month\_comp)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 4 x 6
+##   description            sessions transactions       QTY      ECR addsToCart
+##   <chr>                     <dbl>        <dbl>     <dbl>    <dbl>      <dbl>
+## 1 5/2013              1164639        28389     51629     0.0244   136720    
+## 2 6/2013              1388834        34538     61891     0.0249   107970    
+## 3 absolute difference  224195         6149     10262     0.000493  28750    
+## 4 relative difference       0.193        0.217     0.199 0.0202       -0.210
+\end{verbatim}
+
+This shows the absolute and relative difference between the two most
+recent months. Note that while absolute difference has the same units as
+the first two rows, relative difference does not. The units of relative
+difference can be described as the \emph{proportional change} between
+the two most recent months.
+
+\hypertarget{create-spreadsheet}{%
+\subsection{Create spreadsheet}\label{create-spreadsheet}}
+
+Both output data frames have been created,
+\texttt{month\_device\_aggregated\_data} and
+\texttt{month\_over\_month\_comp}. All that's left to do is to create
+the Excel spreadsheet to store them.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{wb }\OtherTok{\textless{}{-}} \FunctionTok{createWorkbook}\NormalTok{()}
+
+\CommentTok{\# Add first sheet}
+\FunctionTok{addWorksheet}\NormalTok{(wb, }\StringTok{\textquotesingle{}Aggregated Data\textquotesingle{}}\NormalTok{)}
+\FunctionTok{writeData}\NormalTok{(wb, }\StringTok{\textquotesingle{}Aggregated Data\textquotesingle{}}\NormalTok{, month\_device\_aggregated\_data)}
+
+\CommentTok{\# Add second sheet}
+\FunctionTok{addWorksheet}\NormalTok{(wb, }\StringTok{\textquotesingle{}Month Over Month Comparison\textquotesingle{}}\NormalTok{)}
+\FunctionTok{writeData}\NormalTok{(wb, }\StringTok{\textquotesingle{}Month Over Month Comparison\textquotesingle{}}\NormalTok{, month\_over\_month\_comp)}
+
+\CommentTok{\# Add percentage style to apply to the relative difference row in the}
+\CommentTok{\# month over month comparison (for readability)}
+\FunctionTok{addStyle}\NormalTok{(wb,}
+         \AttributeTok{sheet =} \StringTok{\textquotesingle{}Month Over Month Comparison\textquotesingle{}}\NormalTok{,}
+         \AttributeTok{rows =} \DecValTok{5}\NormalTok{, }\CommentTok{\# 4th row (+1 to account for header)}
+         \AttributeTok{cols =} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{ncol}\NormalTok{(month\_over\_month\_comp),}
+         \AttributeTok{style =} \FunctionTok{createStyle}\NormalTok{(}\AttributeTok{numFmt =} \StringTok{"0.00\%"}\NormalTok{))}
+
+\CommentTok{\# For both sheets, set all column widths to be auto{-}calculated (for readability)}
+\FunctionTok{setColWidths}\NormalTok{(wb, }\AttributeTok{sheet =} \StringTok{\textquotesingle{}Aggregated Data\textquotesingle{}}\NormalTok{, }\AttributeTok{cols =} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{ncol}\NormalTok{(month\_device\_aggregated\_data), }\AttributeTok{widths =} \StringTok{"auto"}\NormalTok{)}
+\FunctionTok{setColWidths}\NormalTok{(wb, }\AttributeTok{sheet =} \StringTok{\textquotesingle{}Month Over Month Comparison\textquotesingle{}}\NormalTok{, }\AttributeTok{cols =} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{ncol}\NormalTok{(month\_over\_month\_comp), }\AttributeTok{widths =} \StringTok{"auto"}\NormalTok{)}
+
+\CommentTok{\# Write spreadsheet to \textasciigrave{}output.xlsx\textasciigrave{}}
+\FunctionTok{saveWorkbook}\NormalTok{(wb, }\StringTok{\textquotesingle{}output.xlsx\textquotesingle{}}\NormalTok{, }\AttributeTok{overwrite =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+
+\end{document}
